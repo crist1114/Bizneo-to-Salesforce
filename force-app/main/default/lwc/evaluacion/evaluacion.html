@@ -1,0 +1,55 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Crear evaluacion</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium ">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Nombre</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="text-input-id-46" onchange={setearNombre}
+                                    placeholder="Nombre de la evaluacion" required="" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col prueba">
+                        <label class="slds-form-element__label" for="text-input-id-46">Agregar pregunta</label><br>
+                        <lightning-button-icon icon-name="utility:add" alternative-text="add"
+                            class="slds-m-left_xx-small" title="add" onclick={agregarPregunta}></lightning-button-icon>
+                    </div>
+                </div><br>
+                <!-- aqui inserto preguntas -->
+                <div class="slds-border_top slds-border_bottom slds-border_right slds-border_left slds-p-horizontal_large slds-p-vertical_large">
+                    <template for:each={cant} for:item="c">
+                        <c-pregunta key={c.item} oneventopregunta={handleEventoPregunta}></c-pregunta>
+                    </template>
+                </div><br>
+                <div class="slds-align_absolute-center">
+                    <label class="slds-form-element__label" for="text-input-id-46">Agregar pregunta</label><br>
+                <lightning-button-icon icon-name="utility:add" alternative-text="add"
+                    class="slds-m-left_xx-small" title="add" onclick={agregarPregunta}></lightning-button-icon>
+                </div>
+                
+
+            </div>
+
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModalAction}
+                    aria-label="Cancel and close">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={guardarEvaluacion}>Save</button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

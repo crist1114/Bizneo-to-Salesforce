@@ -1,0 +1,44 @@
+<template>
+    <div class="slds-grid slds-gutters nuevaOpcion">
+        <div class="slds-col">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-46">
+                    <abbr class="slds-required" title="required">* </abbr>Opcion</label>
+                <div class="slds-form-element__control">
+                    <div class="slds-col">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <input type="text" onchange={handleNombreOpcion} id="text-input-id-46" placeholder="opcion..."
+                                    required="" class="slds-input nombre" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <!-- <div class="slds-col" if:true={esUnica}>
+            <span class="slds-radio  slds-p-vertical_large">
+                <input type="radio" id="radio-61" value="radio-61" class="check" onblur={handleChangeCheck}  name="default" />
+                <label class="slds-radio__label" for="radio-61">
+                  <span class="slds-radio_faux"></span>
+                  <span class="slds-form-element__label">Es correcta</span>
+                </label>
+              </span>
+        </div> -->
+        <div class="slds-col">
+            <lightning-input class="slds-p-vertical_large" onchange={handleChangeCheck}
+              type="checkbox"
+              label="Es correcta" 
+              name="input1"
+            ></lightning-input>
+        </div>
+        <div class="slds-col">
+            <label class="slds-form-element__label" for="text-input-id-46">
+                Eliminar</label><br>
+            <lightning-button-icon onclick={eliminarOpcion} icon-name="utility:delete" alternative-text="Delete"
+                class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+        </div>
+
+    </div>
+</template>

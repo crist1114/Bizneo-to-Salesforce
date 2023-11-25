@@ -1,0 +1,55 @@
+<template>
+    <lightning-card icon-name="utility:question" class="nuevaPregunta " variant="base">
+        <div slot="title">
+            Pregunta
+        </div>
+        <div>
+            <!-- Card Body  -->
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-46">
+                            <abbr class="slds-required" title="required">* </abbr>Pregunta </label>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="text-input-id-46" onchange={handleChangeNombre}
+                                placeholder="Placeholder text…" required="" class="slds-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <lightning-combobox name="tipo" label="Tipo" placeholder="Seleciona tipo" options={options}
+                        onchange={handleSelectTipo} required></lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <label class="slds-form-element__label" for="text-input-id-46">
+                        Eliminar</label><br>
+                    <lightning-button-icon icon-name="utility:delete" alternative-text="Delete"
+                        class="slds-m-left_xx-small" title="Delete" onclick={eliminarPregunta}></lightning-button-icon>
+                </div>
+
+                <div class="slds-col">
+                    <label class="slds-form-element__label" for="text-input-id-46">Opcion</label><br>
+                    <lightning-button-icon icon-name="utility:add" alternative-text="add" class="slds-m-left_xx-small"
+                        title="add" onclick={agregarOpcion}></lightning-button-icon>
+                </div>
+            </div><br>
+            <lightning-card icon-name="utility:radio_button" variant="base">
+                <div slot="title">
+                    Opciones
+                </div>
+                <div
+                    class="slds-border_top slds-border_bottom slds-border_right slds-border_left slds-p-horizontal_large slds-p-vertical_large">
+                    <!-- aqui pongo las opciones  -->
+                    <fieldset class="slds-form-element">
+                        <div class="slds-form-element__control">
+                            <template for:each={cant} for:item="c">
+                                <c-opcion key={c.item} oneventoopcion={handleEventoOpcion} oneventochecked={handleEventoChecked}></c-opcion>
+                            </template>
+                        </div>
+                    </fieldset>
+                </div>
+            </lightning-card>
+        </div>
+    </lightning-card>
+
+</template>

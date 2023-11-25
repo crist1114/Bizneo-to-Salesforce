@@ -1,0 +1,8 @@
+<template>
+    <div height="100px">
+        <lightning-datatable key-field="id" data={evaluaciones} columns={columns} hide-checkbox-column="true"
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
+    <c-evaluacion-item if:true={container} oneventomodal={handleRecibirEventoModal} fila={fila}></c-evaluacion-item>
+</template>

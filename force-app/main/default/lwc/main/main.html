@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-align_absolute-center">
+        <button class="slds-button slds-button_brand" onclick={mostrarEvaluacion}>Nueva Evaluacion +</button>
+    </div>
+    <c-evaluacion if:true={nuevaEvaluacion} record-id={recordId}
+        oneventomodal={handleRecibirEventoModal}></c-evaluacion>
+
+    <!-- Evaluaciones creadas -->
+    <!-- <hr> --> <br>
+    <div class="slds-align_absolute-center">
+        <h2><lightning-icon icon-name="utility:activity" variant="success"></lightning-icon><lightning-icon
+                icon-name="utility:bookmark"></lightning-icon>
+        </h2>
+    </div><br>
+    <div class="slds-m-horizontal_medium">
+        <c-evaluacion-list evaluaciones={evaluaciones}></c-evaluacion-list>
+    </div>
+</template>
